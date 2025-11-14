@@ -73,11 +73,11 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                Anupam
+                Birjesh
               </span>
               <br />
               <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 bg-clip-text text-transparent">
-                Kushwaha
+                Gupta
               </span>
             </motion.h1>
 

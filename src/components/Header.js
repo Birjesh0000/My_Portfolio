@@ -21,7 +21,7 @@ const Header = () => {
           duration={500}
           className="text-2xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer"
         >
-          Anupam Kushwaha
+          Birjesh Gupta
         </Link>
         <nav className="hidden md:flex space-x-6">
           {['hero', 'about', 'education', 'projects', 'skills', 'achievements', 'experience', 'coding', 'contact'].map((section) => (

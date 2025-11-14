@@ -69,7 +69,7 @@ const About = () => {
                     <FiPhone className="text-blue-400" />
                   </div>
                   <a href="tel:+916387998031" className="text-gray-300 hover:text-blue-400 transition-colors">
-                    +91-6387998031
+                    +91-8081955858
                   </a>
                 </motion.div>
                 
@@ -81,7 +81,7 @@ const About = () => {
                     <FiMail className="text-purple-400" />
                   </div>
                   <a href="mailto:anupamkush8031@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    anupamkush8031@gmail.com
+                    gbirjesh0000@gmail.com
                   </a>
                 </motion.div>
               </div>

@@ -6,24 +6,24 @@ const CodingProfiles = () => {
   const profiles = [
     {
       platform: 'LeetCode',
-      username: 'apmkush',
-      link: 'https://leetcode.com/apmkush/',
+      username: 'gbirjesh0000',
+      link: 'https://leetcode.com/u/gbirjesh0000/',
       icon: '/leetcode-icon.png',
       gradient: 'from-orange-500 to-red-500',
-      description: 'Competitive Programming'
+      description: 'DSA Practice and Coding Challenges'
     },
     {
-      platform: 'GeeksforGeeks',
-      username: 'apmkushpzlk',
-      link: 'https://auth.geeksforgeeks.org/user/apmkushpzlk',
-      icon: '/gfg icon.jpg',
+      platform: 'Codeforces',
+      username: 'brijesh0000',
+      link: 'https://codeforces.com/profile/brijesh0000',
+      icon: '/codeforces-logo.webp',
       gradient: 'from-green-500 to-emerald-500',
-      description: 'DSA Practice'
+      description: 'DSA Practice and Coding Challenges'
     },
     {
       platform: 'CodeChef',
-      username: 'apmkush13579',
-      link: 'https://www.codechef.com/users/apmkush13579',
+      username: 'gbirjesh_0000',
+      link: 'https://www.codechef.com/users/gbirjesh_0000',
       icon: '/codechef icon.jpg',
       gradient: 'from-purple-500 to-pink-500',
       description: 'Coding Challenges'

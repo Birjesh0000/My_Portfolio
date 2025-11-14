@@ -13,7 +13,13 @@ const Achievements = () => {
     },
     {
       title: '1000+ Problems Solved',
-      description: 'Solved 1000+ questions across all coding platforms including LeetCode, GeeksforGeeks, and CodeChef, demonstrating strong problem-solving skills and algorithmic thinking.',
+      description: 'Solved 1000+ questions across all coding platforms including LeetCode, Codeforces, and CodeChef, demonstrating strong problem-solving skills and algorithmic thinking.',
+      icon: <FiCode className="text-2xl" />,
+      gradient: 'from-green-500 to-emerald-500'
+    },
+    {
+      title: 'Achievements on Coding Platforms',
+      description: 'Secured strong competitive programming positions across major platforms — Knight rank on LeetCode, Pupil on Codeforces, and a 3-Star rating on CodeChef — reflecting consistent problem-solving ability and algorithmic expertise.',
       icon: <FiCode className="text-2xl" />,
       gradient: 'from-green-500 to-emerald-500'
     }
