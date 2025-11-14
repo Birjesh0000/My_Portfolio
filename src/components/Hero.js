@@ -163,7 +163,7 @@ const Hero = () => {
               className="flex items-center gap-6 mt-8"
             >
               <a
-                href="https://github.com/anupamkush2003"
+                href="https://github.com/Birjesh0000"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 text-gray-400 hover:text-white transition-all duration-300"
@@ -171,7 +171,7 @@ const Hero = () => {
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                   <FiGithub className="text-xl" />
                 </div>
-                <span className="text-sm">@anupamkush2003</span>
+                <span className="text-sm">@Birjesh0000</span>
               </a>
               
               <a
@@ -206,8 +206,8 @@ const Hero = () => {
                 {/* Profile Image */}
                 <div className="w-full h-full rounded-full overflow-hidden border border-white/10 bg-gray-800 flex items-center justify-center">
                   <img
-                    src="/Anupam Profile Pic.jpg"
-                    alt="Anupam Kushwaha"
+                    src="/profile_4.jpg"
+                    alt="Birjesh Gupta"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.style.display = 'none';

@@ -13,9 +13,9 @@ const Experience = () => {
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Event Coordinator',
-      org: 'Antodaya',
-      description: 'Led coordination for 1500+ students across 30+ schools in 20+ cultural and competitive events, ensuring smooth execution and engagement.',
+      title: 'Counselling Head',
+      org: 'Super 100 Kanpur',
+      description: 'Counselled over 200 students each year, guiding them in selecting the best colleges based on their JEE Main and JEE Advanced ranks.',
       icon: <FiAward className="text-2xl" />,
       gradient: 'from-purple-500 to-pink-500'
     }

@@ -25,10 +25,7 @@ const Footer = () => {
             <FiCoffee className="text-yellow-400" />
           </div>
           <p className="text-gray-400 mb-2">
-            &copy; 2025 Anupam Kushwaha. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-sm">
-            Built with React, Tailwind CSS & Framer Motion
+            &copy; 2025 Birjesh Gupta. All rights reserved.
           </p>
         </motion.div>
       </div>

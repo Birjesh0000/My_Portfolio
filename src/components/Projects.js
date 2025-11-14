@@ -16,9 +16,9 @@ const Projects = () => {
         'Built a real-time chat system using Socket.IO with document sharing, enhancing collaboration across study groups and project teams.'
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com/anupamkush2003/vidyaSetu',
+      github: 'https://github.com/apmkush/VidyaSetu', // UPDATED
       live: '',
-      image: '/images/vidyaSetu-screenshot.png', // You can replace this with actual screenshot
+      image: '/images/vidyaSetu-screenshot.png',
       period: 'Dec 2024 - Jun 2025',
       gradient: 'from-blue-500 to-cyan-500'
     },
@@ -31,9 +31,9 @@ const Projects = () => {
         'Integrated Razorpay payment gateway for dealers to pay securely, track subscription status, and choose between 6- or 12-month plans—streamlining monetization.'
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
-      github: 'https://github.com/anupamkush2003/recycleHub',
+      github: 'https://github.com/apmkush/recycleHub',
       live: '',
-      image: '/images/recycleHub-screenshot.png', // You can replace this with actual screenshot
+      image: '/images/recycleHub-screenshot.png',
       period: 'Nov 2024 - Dec 2024',
       gradient: 'from-green-500 to-emerald-500'
     }
@@ -41,7 +41,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 relative overflow-hidden">
-      {/* Background Elements */}
+
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -72,16 +72,14 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
             >
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300">
-                {/* Project Image */}
+
                 <div className="relative h-48 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20`}></div>
-                  {/* You can replace this div with actual project screenshot when available */}
                   <div className="w-full h-full bg-gray-800 flex items-center justify-center">
                     <div className="text-4xl font-bold text-white/30">{project.title.charAt(0)}</div>
                   </div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors">
@@ -122,7 +120,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Project Modal */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div
@@ -147,7 +144,6 @@ const Projects = () => {
                     <FiX className="text-white text-xl" />
                   </button>
 
-                  {/* Modal Header */}
                   <div className="p-6 border-b border-white/10">
                     <h3 className="text-2xl font-bold text-white mb-2">
                       {selectedProject.title}
@@ -160,7 +156,6 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  {/* Modal Content */}
                   <div className="p-6">
                     <h4 className="text-lg font-semibold text-white mb-4">Project Details</h4>
                     <ul className="space-y-3 mb-6">
@@ -194,6 +189,7 @@ const Projects = () => {
                         <FiGithub />
                         View Code
                       </a>
+
                       {selectedProject.live && (
                         <a
                           href={selectedProject.live}

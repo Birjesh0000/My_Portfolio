@@ -9,17 +9,17 @@ const Education = () => {
       title: 'Bachelor of Technology – Electrical Engineering',
       institute: 'Motilal Nehru National Institute of Technology Allahabad',
       duration: 'Nov 2022 - Present',
-      details: 'CPI - 8.33 (6th semester)',
+      details: 'CPI - 7.96 (6th semester)',
       location: 'Prayagraj, Uttar Pradesh',
       icon: '🎓',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Intermediate - Physics, Chemistry and Mathematics',
-      institute: 'Maharishi Vidya Mandir',
+      institute: 'Mahatma Gandhi Inter College',
       duration: 'July 2020 – June 2021',
-      details: 'Percentage - 95.6%',
-      location: 'Prayagraj, Uttar Pradesh',
+      details: 'Percentage - 80.4%',
+      location: 'Gorakhpur, Uttar Pradesh',
       icon: '📚',
       gradient: 'from-purple-500 to-pink-500'
     }
