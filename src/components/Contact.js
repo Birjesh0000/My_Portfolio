@@ -36,8 +36,8 @@ const Contact = () => {
   ];
 
   // Resume download path:
-  // Place your resume at: public/resume/Anupam_Kushwaha_Resume.pdf
-  const resumePath = '/resume/Anupam_Kushwaha_Resume.pdf';
+  // Place your resume at: public/resume/Birjesh_Gupta_Resume.pdf
+  const resumePath = '/resume/Birjesh_Gupta_Resume.pdf';
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 relative overflow-hidden">

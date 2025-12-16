@@ -16,7 +16,7 @@ const Projects = () => {
         'Built a real-time chat system using Socket.IO with document sharing, enhancing collaboration across study groups and project teams.'
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com/apmkush/VidyaSetu', // UPDATED
+      github: 'https://github.com/apmkush/VidyaSetu',
       live: '',
       image: '/images/vidyaSetu-screenshot.png',
       period: 'Dec 2024 - Jun 2025',
