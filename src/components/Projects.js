@@ -18,7 +18,6 @@ const Projects = () => {
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
       github: 'https://github.com/apmkush/VidyaSetu',
       live: '',
-      image: '/images/vidyaSetu-screenshot.png',
       period: 'Dec 2024 - Jun 2025',
       gradient: 'from-blue-500 to-cyan-500'
     },
@@ -33,7 +32,6 @@ const Projects = () => {
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
       github: 'https://github.com/apmkush/recycleHub',
       live: '',
-      image: '/images/recycleHub-screenshot.png',
       period: 'Nov 2024 - Dec 2024',
       gradient: 'from-green-500 to-emerald-500'
     }

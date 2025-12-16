@@ -24,7 +24,7 @@ const CodingProfiles = () => {
       platform: 'CodeChef',
       username: 'gbirjesh_0000',
       link: 'https://www.codechef.com/users/gbirjesh_0000',
-      icon: '/codechef icon.jpg',
+      icon: '/codechef%20icon.jpg',
       gradient: 'from-purple-500 to-pink-500',
       description: 'Coding Challenges'
     }
@@ -68,11 +68,20 @@ const CodingProfiles = () => {
                 <div className="flex justify-center mb-4">
                   <div className="relative">
                     <div className={`absolute inset-0 bg-gradient-to-r ${profile.gradient} rounded-2xl blur-md opacity-50`}></div>
-                    <img 
-                      src={profile.icon} 
-                      alt={profile.platform}
-                      className="relative w-16 h-16 rounded-2xl object-cover border-2 border-white/10"
-                    />
+                    <div className="relative w-16 h-16 rounded-2xl object-cover border-2 border-white/10 bg-gray-800 flex items-center justify-center">
+                      <img 
+                        src={profile.icon} 
+                        alt={profile.platform}
+                        className="w-full h-full rounded-2xl object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="hidden w-full h-full items-center justify-center bg-gradient-to-r from-white/10 to-white/5 text-white text-sm font-bold rounded-2xl">
+                        {profile.platform.slice(0, 1)}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">{profile.platform}</h3>

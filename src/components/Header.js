@@ -9,7 +9,15 @@ const Header = () => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
+    if (darkMode) {
+      document.documentElement.style.colorScheme = 'light';
+      document.body.style.backgroundColor = '#ffffff';
+      document.body.style.color = '#000000';
+    } else {
+      document.documentElement.style.colorScheme = 'dark';
+      document.body.style.backgroundColor = '#111827';
+      document.body.style.color = '#ffffff';
+    }
   };
 
   return (
