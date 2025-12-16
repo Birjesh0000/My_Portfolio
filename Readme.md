@@ -4,7 +4,7 @@ A modern, responsive single-page portfolio showcasing my skills, projects, educa
 
 ## 🌟 Features
 
-- **Responsive Design**: Mobile-first layout with Tailwind CSS and light/dark mode toggle
+- **Responsive Design**: Mobgitile-first layout with Tailwind CSS and light/dark mode toggle
 - **Smooth Navigation**: React Scroll powered seamless section navigation
 - **Rich Animations**: Framer Motion fade-ins, hovers, and smooth transitions
 - **Project Showcase**: Interactive modal cards for VidyaSetu and RecycleHub with GitHub links and tech badges
