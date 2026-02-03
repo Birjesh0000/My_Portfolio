@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { FiDownload, FiGithub, FiCode, FiCoffee } from 'react-icons/fi';
-import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaDatabase, FaLinkedin } from 'react-icons/fa';
 
 const Hero = () => {
   const floatingElements = [
@@ -172,6 +172,18 @@ const Hero = () => {
                   <FiGithub className="text-xl" />
                 </div>
                 <span className="text-sm">@Birjesh0000</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/birjesh-gupta-130651263/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-gray-400 hover:text-white transition-all duration-300"
+              >
+                <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
+                  <FaLinkedin className="text-xl" />
+                </div>
+                <span className="text-sm">LinkedIn</span>
               </a>
               
               <a
