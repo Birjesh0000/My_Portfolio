@@ -146,8 +146,8 @@ const Hero = () => {
               </Link>
               
               <a
-                href="/Anupam_20225011.pdf"
-                download="Anupam_Kushwaha_Resume.pdf"
+                href="/resume/Birjesh_Gupta_Resume.pdf"
+                download="Birjesh_Gupta_Resume.pdf"
                 className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-white/10"
               >
                 <FiDownload className="group-hover:translate-y-0.5 transition-transform duration-300" />
@@ -175,7 +175,7 @@ const Hero = () => {
               </a>
               
               <a
-                href="mailto:anupamkush8031@gmail.com"
+                href="mailto:gbirjesh0000@gmail.com"
                 className="group flex items-center gap-2 text-gray-400 hover:text-white transition-all duration-300"
               >
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
@@ -206,7 +206,7 @@ const Hero = () => {
                 {/* Profile Image */}
                 <div className="w-full h-full rounded-full overflow-hidden border border-white/10 bg-gray-800 flex items-center justify-center">
                   <img
-                    src="/profile_4.jpg"
+                    src="/profile_image.jpg"
                     alt="Birjesh Gupta"
                     className="w-full h-full object-cover"
                   />

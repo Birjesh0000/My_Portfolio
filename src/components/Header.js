@@ -9,7 +9,6 @@ const Header = () => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
   };
 
   return (
@@ -38,7 +37,7 @@ const Header = () => {
         </nav>
         <button
           onClick={toggleDarkMode}
-          className="md:hidden text-gray-300 hover:text-white mr-4"
+          className="text-gray-300 hover:text-white mr-4"
         >
           {darkMode ? <FiSun size={24} /> : <FiMoon size={24} />}
         </button>
