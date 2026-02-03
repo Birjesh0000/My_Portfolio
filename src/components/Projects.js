@@ -17,7 +17,7 @@ const Projects = () => {
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
       github: 'https://github.com/apmkush/VidyaSetu', // UPDATED
-      live: '',
+      live: 'https://vidya-setu-one.vercel.app/',
       image: '/images/vidyaSetu-screenshot.png',
       period: 'Dec 2024 - Jun 2025',
       gradient: 'from-blue-500 to-cyan-500'
@@ -32,7 +32,7 @@ const Projects = () => {
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
       github: 'https://github.com/apmkush/recycleHub',
-      live: '',
+      live: 'https://recycle-hub-psi.vercel.app/',
       image: '/images/recycleHub-screenshot.png',
       period: 'Nov 2024 - Dec 2024',
       gradient: 'from-green-500 to-emerald-500'
@@ -113,6 +113,18 @@ const Projects = () => {
                       <FiGithub />
                       Code
                     </a>
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                      >
+                        <FiExternalLink />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

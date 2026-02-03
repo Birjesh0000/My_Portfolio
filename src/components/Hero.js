@@ -209,15 +209,7 @@ const Hero = () => {
                     src="/profile_4.jpg"
                     alt="Birjesh Gupta"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
                   />
-                  {/* Fallback Avatar */}
-                  <div className="hidden w-full h-full items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 text-white text-4xl font-bold">
-                    AK
-                  </div>
                 </div>
 
                 {/* Floating Badges */}

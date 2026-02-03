@@ -22,6 +22,15 @@ const Education = () => {
       location: 'Gorakhpur, Uttar Pradesh',
       icon: '📚',
       gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      title: 'High School',
+      institute: "St. Xaviers' SCH Bhitirawat",
+      duration: '',
+      details: '',
+      location: 'Gorakhpur, Uttar Pradesh',
+      icon: '🎓',
+      gradient: 'from-orange-500 to-yellow-500'
     }
   ];
 

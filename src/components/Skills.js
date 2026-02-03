@@ -5,7 +5,7 @@ import { FaCode, FaDatabase, FaTools, FaLaptopCode } from 'react-icons/fa';
 
 const Skills = () => {
   const skills = {
-    "Programming Languages": ['C++', 'JavaScript', 'SQL'],
+    "Programming Languages": ['C++', 'JavaScript', 'SQL', 'Python'],
     "Databases & Tools": ['MongoDB', 'GitHub', 'Git', 'VSCode'],
     "Technologies & Frameworks": ['ReactJS', 'NodeJS', 'ExpressJS'],
     "Domain Knowledge": ['Object Oriented Programming', 'Database Management Systems', 'Operating System', 'Computer Networking']

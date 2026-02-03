@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone, FiMail, FiUser } from 'react-icons/fi';
 
 const About = () => {
-  const interests = ['Data Structures & Algorithms', 'Web Development', 'Operating Systems', 'Database Management System', 'OOPS Concept'];
+  const interests = ['Data Structures & Algorithms', 'Web Development', 'Operating Systems', 'Database Management System', 'OOPS Concept', 'Computer Network'];
 
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-blue-900/30 relative overflow-hidden">
