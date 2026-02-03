@@ -26,8 +26,8 @@ const Education = () => {
     {
       title: 'High School',
       institute: "St. Xaviers' SCH Bhitirawat",
-      duration: '',
-      details: '',
+      duration: 'July 2018 – June 2019',
+      details: 'Percentage - 94%',
       location: 'Gorakhpur, Uttar Pradesh',
       icon: '🎓',
       gradient: 'from-orange-500 to-yellow-500'

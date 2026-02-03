@@ -206,7 +206,7 @@ const Hero = () => {
                 {/* Profile Image */}
                 <div className="w-full h-full rounded-full overflow-hidden border border-white/10 bg-gray-800 flex items-center justify-center">
                   <img
-                    src="/profile_image.jpg"
+                    src="/profile_4.jpg"
                     alt="Birjesh Gupta"
                     className="w-full h-full object-cover"
                   />
