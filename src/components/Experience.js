@@ -39,7 +39,7 @@ const Experience = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent mb-4">
             Leadership & Experience
           </h2>
-          <p className="text-gray-400 text-lg">Positions of responsibility</p>
+          <p className="text-gray-400 text-lg">Leadership Roles & Organizational Impact</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

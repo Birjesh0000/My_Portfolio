@@ -19,7 +19,7 @@ const Achievements = () => {
     },
     {
       title: 'Achievements on Coding Platforms',
-      description: 'Secured strong competitive programming positions across major platforms — Knight rank on LeetCode, Pupil on Codeforces, and a 3-Star rating on CodeChef — reflecting consistent problem-solving ability and algorithmic expertise.',
+      description: <>Secured strong competitive programming positions across major platforms — <strong className="font-bold text-white">Knight rank on LeetCode, Pupil on Codeforces, and a 3-Star rating on CodeChef</strong> — reflecting consistent problem-solving ability and algorithmic expertise.</>,
       icon: <FiCode className="text-2xl" />,
       gradient: 'from-green-500 to-emerald-500'
     }

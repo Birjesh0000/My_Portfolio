@@ -9,7 +9,7 @@ const Education = () => {
       title: 'Bachelor of Technology – Electrical Engineering',
       institute: 'Motilal Nehru National Institute of Technology Allahabad',
       duration: 'Nov 2022 - Present',
-      details: 'CPI - 7.96 (6th semester)',
+      details: 'CPI - 8.03 (7th semester)',
       location: 'Prayagraj, Uttar Pradesh',
       icon: '🎓',
       gradient: 'from-blue-500 to-cyan-500'
@@ -17,7 +17,7 @@ const Education = () => {
     {
       title: 'Intermediate - Physics, Chemistry and Mathematics',
       institute: 'Mahatma Gandhi Inter College',
-      duration: 'July 2020 – June 2021',
+      duration: 'July 2019 – June 2021',
       details: 'Percentage - 80.4%',
       location: 'Gorakhpur, Uttar Pradesh',
       icon: '📚',
@@ -95,10 +95,20 @@ const Education = () => {
                       {edu.institute}
                     </h4>
 
-                    <div className="flex items-center gap-4 text-gray-300 mb-3">
+                    <div className="flex items-center gap-4 text-gray-300 mb-3 flex-wrap">
                       <div className="flex items-center gap-2">
                         <FiAward className="text-yellow-400" />
-                        <span>{edu.details}</span>
+                        {/* Highlight CPI for current degree */}
+                        {index === 0 ? (
+                          <div className="inline-flex items-center gap-2">
+                            <span className="font-semibold text-white">CPI:</span>
+                            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-3 py-1 rounded-full font-bold text-sm">
+                              {edu.details.split('-')[1].trim().split('(')[0].trim()} ({edu.details.split('(')[1].replace(')', '')})
+                            </span>
+                          </div>
+                        ) : (
+                          <span>{edu.details}</span>
+                        )}
                       </div>
                       <div className="flex items-center gap-2">
                         <FiMapPin className="text-red-400" />

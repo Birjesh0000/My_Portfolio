@@ -10,7 +10,7 @@ const CodingProfiles = () => {
       link: 'https://leetcode.com/u/gbirjesh0000/',
       icon: '/leetcode-icon.png',
       gradient: 'from-orange-500 to-red-500',
-      description: 'DSA Practice and Coding Challenges'
+      description: 'Knight at Leetcode'
     },
     {
       platform: 'Codeforces',
@@ -18,7 +18,7 @@ const CodingProfiles = () => {
       link: 'https://codeforces.com/profile/brijesh0000',
       icon: '/codeforces-logo.webp',
       gradient: 'from-green-500 to-emerald-500',
-      description: 'DSA Practice and Coding Challenges'
+      description: 'Pupil at Codeforces'
     },
     {
       platform: 'CodeChef',
@@ -26,7 +26,7 @@ const CodingProfiles = () => {
       link: 'https://www.codechef.com/users/gbirjesh_0000',
       icon: '/codechef%20icon.jpg',
       gradient: 'from-purple-500 to-pink-500',
-      description: 'Coding Challenges'
+      description: '3-star coder at CodeChef'
     }
   ];
 
@@ -48,7 +48,7 @@ const CodingProfiles = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-orange-200 bg-clip-text text-transparent mb-4">
             Coding Profiles
           </h2>
-          <p className="text-gray-400 text-lg">Where I practice and compete</p>
+          <p className="text-gray-400 text-lg">Competitive Programming & Problem-Solving</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

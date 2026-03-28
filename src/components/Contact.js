@@ -57,7 +57,7 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
             Get In Touch
           </h2>
-          <p className="text-gray-400 text-lg">Feel free to reach out or download my resume</p>
+          <p className="text-gray-400 text-lg">Professional Inquiries & Resume</p>
         </motion.div>
 
         {/* Center the single contact card */}

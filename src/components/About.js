@@ -24,7 +24,7 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent mb-4">
             About Me
           </h2>
-          <p className="text-gray-400 text-lg">Get to know me better</p>
+          <p className="text-gray-400 text-lg">Professional Background & Core Competencies</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -42,9 +42,7 @@ const About = () => {
                 <h3 className="text-2xl font-semibold text-white">Who I Am</h3>
               </div>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Passionate about building innovative web applications and solving complex problems through code. 
-                Currently pursuing B.Tech in Electrical Engineering at MNNIT Allahabad with a strong foundation 
-                in full-stack development and a love for creating digital solutions.
+                Full-Stack Developer specializing in scalable web applications and algorithmic problem-solving. Currently pursuing B.Tech in Electrical Engineering at MNNIT Allahabad, combining systems-level thinking with production-grade development across React, Node.js, and MongoDB ecosystems.
               </p>
             </div>
 

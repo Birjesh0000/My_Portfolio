@@ -25,7 +25,7 @@ const Footer = () => {
             <FiCoffee className="text-yellow-400" />
           </div>
           <p className="text-gray-400 mb-2">
-            &copy; 2025 Birjesh Gupta. All rights reserved.
+            &copy; 2026 Birjesh Gupta. All rights reserved.
           </p>
         </motion.div>
       </div>

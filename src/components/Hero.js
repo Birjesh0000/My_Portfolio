@@ -2,48 +2,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { FiDownload, FiGithub, FiCode, FiCoffee } from 'react-icons/fi';
-import { FaReact, FaNodeJs, FaDatabase, FaLinkedin } from 'react-icons/fa';
+import { FiDownload, FiGithub, FiCoffee } from 'react-icons/fi';
+import { FaLinkedin } from 'react-icons/fa';
 
 const Hero = () => {
-  const floatingElements = [
-    { icon: <FaReact />, delay: 0, position: { top: '20%', left: '10%' } },
-    { icon: <FaNodeJs />, delay: 0.5, position: { top: '60%', left: '85%' } },
-    { icon: <FaDatabase />, delay: 1, position: { top: '80%', left: '15%' } },
-    { icon: <FiCode />, delay: 1.5, position: { top: '30%', left: '80%' } },
-  ];
-
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900/20 to-blue-900/30 text-white py-20 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
         
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
       </div>
-
-      {/* Floating Tech Icons */}
-      {floatingElements.map((element, index) => (
-        <motion.div
-          key={index}
-          className="absolute text-2xl text-white/20"
-          style={element.position}
-          initial={{ y: 0 }}
-          animate={{ y: [0, -20, 0] }}
-          transition={{
-            duration: 3,
-            delay: element.delay,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          {element.icon}
-        </motion.div>
-      ))}
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -120,7 +94,7 @@ const Hero = () => {
                 <div className="text-gray-400 text-sm">Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">1st</div>
+                <div className="text-3xl font-bold text-white mb-2">3+</div>
                 <div className="text-gray-400 text-sm">Hackathon Win</div>
               </div>
             </motion.div>
@@ -183,7 +157,7 @@ const Hero = () => {
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                   <FaLinkedin className="text-xl" />
                 </div>
-                <span className="text-sm">LinkedIn</span>
+                <span className="text-sm">Birjesh Gupta</span>
               </a>
               
               <a
@@ -193,7 +167,7 @@ const Hero = () => {
                 <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                   <FiCoffee className="text-xl" />
                 </div>
-                <span className="text-sm">Let's Connect</span>
+                <span className="text-sm">Let's Connect via Mail</span>
               </a>
             </motion.div>
           </motion.div>
@@ -207,7 +181,7 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Outer Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20"></div>
               
               {/* Main Image Container */}
               <motion.div
@@ -247,16 +221,12 @@ const Hero = () => {
               </motion.div>
 
               {/* Animated Orbit */}
-              <motion.div
+              <div
                 className="absolute inset-0 rounded-full border-2 border-blue-400/30"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
               
-              <motion.div
+              <div
                 className="absolute inset-4 rounded-full border-2 border-purple-400/30"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               />
             </div>
           </motion.div>

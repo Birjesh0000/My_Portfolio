@@ -1,15 +1,10 @@
 // src/components/Header.js
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-700">
@@ -36,12 +31,6 @@ const Header = () => {
           ))}
         </nav>
         <button
-          onClick={toggleDarkMode}
-          className="text-gray-300 hover:text-white mr-4"
-        >
-          {darkMode ? <FiSun size={24} /> : <FiMoon size={24} />}
-        </button>
-        <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-gray-300 hover:text-white"
         >
@@ -63,12 +52,6 @@ const Header = () => {
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </Link>
             ))}
-            <button
-              onClick={toggleDarkMode}
-              className="text-gray-300 hover:text-white self-start"
-            >
-              {darkMode ? 'Light Mode' : 'Dark Mode'}
-            </button>
           </nav>
         </div>
       )}

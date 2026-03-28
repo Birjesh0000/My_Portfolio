@@ -1,43 +1,124 @@
 // src/components/Projects.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiX, FiCalendar } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiX, FiCalendar, FiStar } from 'react-icons/fi';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [allProjects, setAllProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const projects = [
+  const hardcodedProjects = [
     {
       title: 'VidyaSetu',
       description: [
-        'Implemented secure login/signup with Google OAuth 2.0 for authentication using JWT and Bcrypt.',
-        'Integrated a dynamic timetable system, allowing students to view schedules and mark attendance, while admins manage updates.',
+        'Designed a responsive platform to help students track academic progress and goals.',
+        'Enabled users to set daily and weekly goals with an integrated personalized timetable system.',
         'Built an interactive academic dashboard featuring a deadline calendar and results declaration.',
-        'Built a real-time chat system using Socket.IO with document sharing, enhancing collaboration across study groups and project teams.'
+        'Built a real-time chat system using Socket.IO with document sharing , enhancing collaboration across study groups and project teams.'
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
       github: 'https://github.com/apmkush/VidyaSetu',
       live: 'https://vidya-setu-one.vercel.app/',
-      image: '/images/vidyaSetu-screenshot.png',
       period: 'Dec 2024 - Jun 2025',
-      gradient: 'from-blue-500 to-cyan-500'
+      gradient: 'from-blue-500 to-cyan-500',
+      isHardcoded: true,
+      stars: 0
     },
     {
       title: 'RecycleHub',
       description: [
-        'Developed a responsive web app for scrap pickup scheduling, enabling users to book services and dealers to manage requests and generate PDF invoices—boosting efficiency.',
-        'Developed Google login and email OTP verification for user authentication and password recovery.',
+        'Built an intuitive platform for scheduling scrap pickups, dealer acceptance, and PDF invoice generation.',
+        'Implemented Secure authentication using Google OAuth and email OTP for password recovery.',
         'Designed a multi-profile management system for admins, dealers, and customers, ensuring role-specific access and functionalities using React-Redux.',
         'Integrated Razorpay payment gateway for dealers to pay securely, track subscription status, and choose between 6- or 12-month plans—streamlining monetization.'
       ],
       tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
       github: 'https://github.com/apmkush/recycleHub',
       live: 'https://recycle-hub-psi.vercel.app/',
-      image: '/images/recycleHub-screenshot.png',
       period: 'Nov 2024 - Dec 2024',
-      gradient: 'from-green-500 to-emerald-500'
+      gradient: 'from-green-500 to-emerald-500',
+      isHardcoded: true,
+      stars: 0
     }
   ];
+
+  // Gradient colors for GitHub projects
+  const gradients = [
+    'from-purple-500 to-pink-500',
+    'from-indigo-500 to-blue-500',
+    'from-cyan-500 to-teal-500',
+    'from-orange-500 to-red-500',
+    'from-yellow-500 to-orange-500',
+    'from-pink-500 to-rose-500'
+  ];
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const fetchGitHubProjects = async () => {
+      try {
+        // Fetch repositories from GitHub API
+        const response = await fetch('https://api.github.com/users/Birjesh0000/repos?per_page=100&sort=stars&order=desc');
+        const repos = await response.json();
+
+        // Filter repos with stars > 0 and exclude forks
+        const filteredRepos = repos.filter(repo => repo.stargazers_count > 0 && !repo.fork);
+
+        // Transform GitHub repos to match our format
+        const gitHubProjects = filteredRepos.map((repo, index) => ({
+          title: repo.name,
+          description: [
+            repo.description || 'A project on GitHub',
+            `${repo.language || 'Multiple languages'} implementation.`,
+            `Community-driven project with ${repo.stargazers_count} stars.`,
+            `Repository URL: ${repo.html_url}`
+          ],
+          tech: repo.language ? [repo.language] : ['TypeScript'],
+          github: repo.html_url,
+          live: repo.homepage || null,
+          period: new Date(repo.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
+          gradient: gradients[index % gradients.length],
+          isHardcoded: false,
+          stars: repo.stargazers_count,
+          language: repo.language
+        }));
+
+        // Combine hardcoded projects + GitHub projects
+        const combined = [...hardcodedProjects, ...gitHubProjects];
+
+        // Sort by priority: hardcoded first, then by stars
+        combined.sort((a, b) => {
+          if (a.isHardcoded) return -1;
+          if (b.isHardcoded) return 1;
+          return b.stars - a.stars;
+        });
+
+        setAllProjects(combined);
+      } catch (err) {
+        console.error('Error fetching GitHub projects:', err);
+        // If API fails, use only hardcoded projects
+        setAllProjects(hardcodedProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGitHubProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="text-gray-400">Loading projects...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 relative overflow-hidden">
@@ -61,17 +142,17 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
+          {allProjects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: (index % 2) * 0.2 }}
               whileHover={{ y: -10 }}
               className="group cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 h-full flex flex-col">
 
                 <div className="relative h-48 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20`}></div>
@@ -80,19 +161,31 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors flex-1">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm">
-                      <FiCalendar />
+                    {project.isHardcoded && (
+                      <span className="bg-blue-500/30 text-blue-300 text-xs px-2 py-1 rounded-full ml-2 whitespace-nowrap">Featured</span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-3 text-gray-400 text-sm flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <FiCalendar size={14} />
                       <span>{project.period}</span>
                     </div>
+                    {!project.isHardcoded && project.stars > 0 && (
+                      <div className="flex items-center gap-2">
+                        <FiStar size={14} />
+                        <span>{project.stars} stars</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
+                    {project.tech.slice(0, 3).map((tech, i) => (
                       <span
                         key={i}
                         className="bg-white/10 px-3 py-1 rounded-full text-sm text-gray-300 border border-white/10"
@@ -100,9 +193,14 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 3 && (
+                      <span className="bg-white/10 px-3 py-1 rounded-full text-sm text-gray-300 border border-white/10">
+                        +{project.tech.length - 3} more
+                      </span>
+                    )}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 mt-auto">
                     <a
                       href={project.github}
                       target="_blank"
@@ -122,7 +220,7 @@ const Projects = () => {
                         className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                       >
                         <FiExternalLink />
-                        Live Demo
+                        Live
                       </a>
                     )}
                   </div>
@@ -131,6 +229,27 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* GitHub CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-gray-300 text-lg mb-6">
+            I have built some other projects also, checkout my GitHub account for more!
+          </p>
+          <a
+            href="https://github.com/Birjesh0000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 px-8 py-4 rounded-2xl text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 border border-white/10 hover:border-white/20"
+          >
+            <FiGithub size={24} />
+            <span>View All Projects on GitHub</span>
+          </a>
+        </motion.div>
 
         <AnimatePresence>
           {selectedProject && (
@@ -157,14 +276,25 @@ const Projects = () => {
                   </button>
 
                   <div className="p-6 border-b border-white/10">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {selectedProject.title}
-                    </h3>
-                    <div className="flex items-center gap-4 text-gray-400">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-2xl font-bold text-white">
+                        {selectedProject.title}
+                      </h3>
+                      {selectedProject.isHardcoded && (
+                        <span className="bg-blue-500/30 text-blue-300 text-xs px-2 py-1 rounded-full">Featured</span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-4 text-gray-400 flex-wrap">
                       <div className="flex items-center gap-2">
                         <FiCalendar />
                         <span>{selectedProject.period}</span>
                       </div>
+                      {!selectedProject.isHardcoded && selectedProject.stars > 0 && (
+                        <div className="flex items-center gap-2">
+                          <FiStar />
+                          <span>{selectedProject.stars} stars</span>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -196,7 +326,7 @@ const Projects = () => {
                         href={selectedProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl font-semibold text-white transition-colors"
+                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors"
                       >
                         <FiGithub />
                         View Code
@@ -207,10 +337,10 @@ const Projects = () => {
                           href={selectedProject.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-colors"
+                          className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors"
                         >
                           <FiExternalLink />
-                          Live Demo
+                          View Live
                         </a>
                       )}
                     </div>
