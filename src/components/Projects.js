@@ -3,57 +3,57 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiX, FiCalendar, FiStar } from 'react-icons/fi';
 
+// Gradient colors for GitHub projects
+const GRADIENTS = [
+  'from-purple-500 to-pink-500',
+  'from-indigo-500 to-blue-500',
+  'from-cyan-500 to-teal-500',
+  'from-orange-500 to-red-500',
+  'from-yellow-500 to-orange-500',
+  'from-pink-500 to-rose-500'
+];
+
+// Hardcoded projects
+const HARDCODED_PROJECTS = [
+  {
+    title: 'VidyaSetu',
+    description: [
+      'Designed a responsive platform to help students track academic progress and goals.',
+      'Enabled users to set daily and weekly goals with an integrated personalized timetable system.',
+      'Built an interactive academic dashboard featuring a deadline calendar and results declaration.',
+      'Built a real-time chat system using Socket.IO with document sharing , enhancing collaboration across study groups and project teams.'
+    ],
+    tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
+    github: 'https://github.com/apmkush/VidyaSetu',
+    live: 'https://vidya-setu-one.vercel.app/',
+    period: 'Dec 2024 - Jun 2025',
+    gradient: 'from-blue-500 to-cyan-500',
+    isHardcoded: true,
+    stars: 0
+  },
+  {
+    title: 'RecycleHub',
+    description: [
+      'Built an intuitive platform for scheduling scrap pickups, dealer acceptance, and PDF invoice generation.',
+      'Implemented Secure authentication using Google OAuth and email OTP for password recovery.',
+      'Designed a multi-profile management system for admins, dealers, and customers, ensuring role-specific access and functionalities using React-Redux.',
+      'Integrated Razorpay payment gateway for dealers to pay securely, track subscription status, and choose between 6- or 12-month plans—streamlining monetization.'
+    ],
+    tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
+    github: 'https://github.com/apmkush/recycleHub',
+    live: 'https://recycle-hub-psi.vercel.app/',
+    period: 'Nov 2024 - Dec 2024',
+    gradient: 'from-green-500 to-emerald-500',
+    isHardcoded: true,
+    stars: 0
+  }
+];
+
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [allProjects, setAllProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const hardcodedProjects = [
-    {
-      title: 'VidyaSetu',
-      description: [
-        'Designed a responsive platform to help students track academic progress and goals.',
-        'Enabled users to set daily and weekly goals with an integrated personalized timetable system.',
-        'Built an interactive academic dashboard featuring a deadline calendar and results declaration.',
-        'Built a real-time chat system using Socket.IO with document sharing , enhancing collaboration across study groups and project teams.'
-      ],
-      tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com/apmkush/VidyaSetu',
-      live: 'https://vidya-setu-one.vercel.app/',
-      period: 'Dec 2024 - Jun 2025',
-      gradient: 'from-blue-500 to-cyan-500',
-      isHardcoded: true,
-      stars: 0
-    },
-    {
-      title: 'RecycleHub',
-      description: [
-        'Built an intuitive platform for scheduling scrap pickups, dealer acceptance, and PDF invoice generation.',
-        'Implemented Secure authentication using Google OAuth and email OTP for password recovery.',
-        'Designed a multi-profile management system for admins, dealers, and customers, ensuring role-specific access and functionalities using React-Redux.',
-        'Integrated Razorpay payment gateway for dealers to pay securely, track subscription status, and choose between 6- or 12-month plans—streamlining monetization.'
-      ],
-      tech: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB'],
-      github: 'https://github.com/apmkush/recycleHub',
-      live: 'https://recycle-hub-psi.vercel.app/',
-      period: 'Nov 2024 - Dec 2024',
-      gradient: 'from-green-500 to-emerald-500',
-      isHardcoded: true,
-      stars: 0
-    }
-  ];
-
-  // Gradient colors for GitHub projects
-  const gradients = [
-    'from-purple-500 to-pink-500',
-    'from-indigo-500 to-blue-500',
-    'from-cyan-500 to-teal-500',
-    'from-orange-500 to-red-500',
-    'from-yellow-500 to-orange-500',
-    'from-pink-500 to-rose-500'
-  ];
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const fetchGitHubProjects = async () => {
       try {
@@ -77,14 +77,14 @@ const Projects = () => {
           github: repo.html_url,
           live: repo.homepage || null,
           period: new Date(repo.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
-          gradient: gradients[index % gradients.length],
+          gradient: GRADIENTS[index % GRADIENTS.length],
           isHardcoded: false,
           stars: repo.stargazers_count,
           language: repo.language
         }));
 
         // Combine hardcoded projects + GitHub projects
-        const combined = [...hardcodedProjects, ...gitHubProjects];
+        const combined = [...HARDCODED_PROJECTS, ...gitHubProjects];
 
         // Sort by priority: hardcoded first, then by stars
         combined.sort((a, b) => {
@@ -97,7 +97,7 @@ const Projects = () => {
       } catch (err) {
         console.error('Error fetching GitHub projects:', err);
         // If API fails, use only hardcoded projects
-        setAllProjects(hardcodedProjects);
+        setAllProjects(HARDCODED_PROJECTS);
       } finally {
         setLoading(false);
       }
