@@ -57,8 +57,29 @@ const Projects = () => {
   useEffect(() => {
     const fetchGitHubProjects = async () => {
       try {
-        // Fetch repositories from GitHub API
-        const response = await fetch('https://api.github.com/users/Birjesh0000/repos?per_page=100&sort=stars&order=desc');
+        // Check localStorage cache (valid for 24 hours)
+        const cachedData = localStorage.getItem('portfolioProjects');
+        const cacheTime = localStorage.getItem('portfolioProjectsCacheTime');
+        const now = Date.now();
+        const cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
+
+        if (cachedData && cacheTime && (now - parseInt(cacheTime)) < cacheExpiry) {
+          setAllProjects(JSON.parse(cachedData));
+          setLoading(false);
+          return;
+        }
+
+        // Set timeout for API call (10 seconds max)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        const response = await fetch(
+          'https://api.github.com/users/Birjesh0000/repos?per_page=100&sort=stars&order=desc',
+          { signal: controller.signal }
+        );
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error('GitHub API error');
         const repos = await response.json();
 
         // Filter repos with stars > 0 and exclude forks
@@ -93,6 +114,9 @@ const Projects = () => {
           return b.stars - a.stars;
         });
 
+        // Cache the data
+        localStorage.setItem('portfolioProjects', JSON.stringify(combined));
+        localStorage.setItem('portfolioProjectsCacheTime', now.toString());
         setAllProjects(combined);
       } catch (err) {
         console.error('Error fetching GitHub projects:', err);
